@@ -1,0 +1,22 @@
+{
+  "name": "react-native-wechat2",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beefe/react-native-wechat2.git"
+  },
+  "keywords": [
+    "wechat"
+  ],
+  "author": "Yann Xiao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beefe/react-native-wechat2/issues"
+  },
+  "homepage": "https://github.com/beefe/react-native-wechat2#readme"
+}
