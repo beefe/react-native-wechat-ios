@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3A9CD731C190E7C00AA84D6"
-               BuildableName = "libRCTWeChatIOS.a"
-               BlueprintName = "RCTWeChatIOS"
-               ReferencedContainer = "container:RCTWeChatIOS.xcodeproj">
+               BlueprintIdentifier = "D38ECF501C192AC800BDD8AE"
+               BuildableName = "libRCTWeChat.a"
+               BlueprintName = "RCTWeChat"
+               ReferencedContainer = "container:RCTWeChat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D3A9CD731C190E7C00AA84D6"
-            BuildableName = "libRCTWeChatIOS.a"
-            BlueprintName = "RCTWeChatIOS"
-            ReferencedContainer = "container:RCTWeChatIOS.xcodeproj">
+            BlueprintIdentifier = "D38ECF501C192AC800BDD8AE"
+            BuildableName = "libRCTWeChat.a"
+            BlueprintName = "RCTWeChat"
+            ReferencedContainer = "container:RCTWeChat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D3A9CD731C190E7C00AA84D6"
-            BuildableName = "libRCTWeChatIOS.a"
-            BlueprintName = "RCTWeChatIOS"
-            ReferencedContainer = "container:RCTWeChatIOS.xcodeproj">
+            BlueprintIdentifier = "D38ECF501C192AC800BDD8AE"
+            BuildableName = "libRCTWeChat.a"
+            BlueprintName = "RCTWeChat"
+            ReferencedContainer = "container:RCTWeChat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

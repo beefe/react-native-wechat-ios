@@ -1,3 +1,2 @@
 import React from 'react-native';
-
-export default React.NativeModules.WeChatIOS;
+export default React.NativeModules.WeChat;

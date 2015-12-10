@@ -1,20 +1,20 @@
 //
-//  RCTWeChatIOS.m
-//  RCTWeChatIOS
+//  RCTWeChat.m
+//  RCTWeChat
 //
 //  Created by xiaoyan on 15/12/10.
 //  Copyright © 2015年 ziyan. All rights reserved.
 //
 
-#import "RCTWeChatIOS.h"
+#import "RCTWeChat.h"
 #import "RCTBridge.h"
 #import "RCTEventDispatcher.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
 
-static RCTWeChatIOS* instance = nil;
+static RCTWeChat* instance = nil;
 
-@implementation RCTWeChatIOS
+@implementation RCTWeChat
 
 RCT_EXPORT_MODULE();
 
@@ -58,7 +58,7 @@ RCT_EXPORT_MODULE();
                               authResp.state, @"state",
                               authResp.errCode, @"errCode", nil];
         
-        [self.bridge.eventDispatcher sendDeviceEventWithName:@"finishedAuth"
+        [self.bridge.eventDispatcher sendAppEventWithName:@"finishedAuth"
                                                         body:body];
     }
 }

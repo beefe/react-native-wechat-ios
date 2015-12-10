@@ -7,77 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3A9CD781C190E7C00AA84D6 /* RCTWeChatIOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3A9CD771C190E7C00AA84D6 /* RCTWeChatIOS.h */; };
-		D3A9CD7A1C190E7C00AA84D6 /* RCTWeChatIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A9CD791C190E7C00AA84D6 /* RCTWeChatIOS.m */; };
-		D3A9CD841C190F5D00AA84D6 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A9CD811C190F5D00AA84D6 /* libWeChatSDK.a */; };
+		D38ECF551C192AC800BDD8AE /* RCTWeChat.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D38ECF541C192AC800BDD8AE /* RCTWeChat.h */; };
+		D38ECF571C192AC800BDD8AE /* RCTWeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = D38ECF561C192AC800BDD8AE /* RCTWeChat.m */; };
+		D38ECF611C192B6A00BDD8AE /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D38ECF5E1C192B6A00BDD8AE /* libWeChatSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D3A9CD721C190E7C00AA84D6 /* CopyFiles */ = {
+		D38ECF4F1C192AC800BDD8AE /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				D3A9CD781C190E7C00AA84D6 /* RCTWeChatIOS.h in CopyFiles */,
+				D38ECF551C192AC800BDD8AE /* RCTWeChat.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D3A9CD741C190E7C00AA84D6 /* libRCTWeChatIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTWeChatIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3A9CD771C190E7C00AA84D6 /* RCTWeChatIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTWeChatIOS.h; sourceTree = "<group>"; };
-		D3A9CD791C190E7C00AA84D6 /* RCTWeChatIOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTWeChatIOS.m; sourceTree = "<group>"; };
-		D3A9CD811C190F5D00AA84D6 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		D3A9CD821C190F5D00AA84D6 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		D3A9CD831C190F5D00AA84D6 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		D38ECF511C192AC800BDD8AE /* libRCTWeChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTWeChat.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D38ECF541C192AC800BDD8AE /* RCTWeChat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTWeChat.h; sourceTree = "<group>"; };
+		D38ECF561C192AC800BDD8AE /* RCTWeChat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTWeChat.m; sourceTree = "<group>"; };
+		D38ECF5E1C192B6A00BDD8AE /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		D38ECF5F1C192B6A00BDD8AE /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		D38ECF601C192B6A00BDD8AE /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D3A9CD711C190E7C00AA84D6 /* Frameworks */ = {
+		D38ECF4E1C192AC800BDD8AE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A9CD841C190F5D00AA84D6 /* libWeChatSDK.a in Frameworks */,
+				D38ECF611C192B6A00BDD8AE /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D3A9CD6B1C190E7C00AA84D6 = {
+		D38ECF481C192AC800BDD8AE = {
 			isa = PBXGroup;
 			children = (
-				D3A9CD801C190F3C00AA84D6 /* SDK */,
-				D3A9CD761C190E7C00AA84D6 /* RCTWeChatIOS */,
-				D3A9CD751C190E7C00AA84D6 /* Products */,
+				D38ECF5D1C192B5100BDD8AE /* SDK */,
+				D38ECF531C192AC800BDD8AE /* RCTWeChat */,
+				D38ECF521C192AC800BDD8AE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D3A9CD751C190E7C00AA84D6 /* Products */ = {
+		D38ECF521C192AC800BDD8AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3A9CD741C190E7C00AA84D6 /* libRCTWeChatIOS.a */,
+				D38ECF511C192AC800BDD8AE /* libRCTWeChat.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D3A9CD761C190E7C00AA84D6 /* RCTWeChatIOS */ = {
+		D38ECF531C192AC800BDD8AE /* RCTWeChat */ = {
 			isa = PBXGroup;
 			children = (
-				D3A9CD771C190E7C00AA84D6 /* RCTWeChatIOS.h */,
-				D3A9CD791C190E7C00AA84D6 /* RCTWeChatIOS.m */,
+				D38ECF541C192AC800BDD8AE /* RCTWeChat.h */,
+				D38ECF561C192AC800BDD8AE /* RCTWeChat.m */,
 			);
-			path = RCTWeChatIOS;
+			path = RCTWeChat;
 			sourceTree = "<group>";
 		};
-		D3A9CD801C190F3C00AA84D6 /* SDK */ = {
+		D38ECF5D1C192B5100BDD8AE /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				D3A9CD811C190F5D00AA84D6 /* libWeChatSDK.a */,
-				D3A9CD821C190F5D00AA84D6 /* WXApi.h */,
-				D3A9CD831C190F5D00AA84D6 /* WXApiObject.h */,
+				D38ECF5E1C192B6A00BDD8AE /* libWeChatSDK.a */,
+				D38ECF5F1C192B6A00BDD8AE /* WXApi.h */,
+				D38ECF601C192B6A00BDD8AE /* WXApiObject.h */,
 			);
 			name = SDK;
 			sourceTree = "<group>";
@@ -85,67 +85,67 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D3A9CD731C190E7C00AA84D6 /* RCTWeChatIOS */ = {
+		D38ECF501C192AC800BDD8AE /* RCTWeChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D3A9CD7D1C190E7C00AA84D6 /* Build configuration list for PBXNativeTarget "RCTWeChatIOS" */;
+			buildConfigurationList = D38ECF5A1C192AC800BDD8AE /* Build configuration list for PBXNativeTarget "RCTWeChat" */;
 			buildPhases = (
-				D3A9CD701C190E7C00AA84D6 /* Sources */,
-				D3A9CD711C190E7C00AA84D6 /* Frameworks */,
-				D3A9CD721C190E7C00AA84D6 /* CopyFiles */,
+				D38ECF4D1C192AC800BDD8AE /* Sources */,
+				D38ECF4E1C192AC800BDD8AE /* Frameworks */,
+				D38ECF4F1C192AC800BDD8AE /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = RCTWeChatIOS;
-			productName = RCTWeChatIOS;
-			productReference = D3A9CD741C190E7C00AA84D6 /* libRCTWeChatIOS.a */;
+			name = RCTWeChat;
+			productName = RCTWeChat;
+			productReference = D38ECF511C192AC800BDD8AE /* libRCTWeChat.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D3A9CD6C1C190E7C00AA84D6 /* Project object */ = {
+		D38ECF491C192AC800BDD8AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = ziyan;
 				TargetAttributes = {
-					D3A9CD731C190E7C00AA84D6 = {
+					D38ECF501C192AC800BDD8AE = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
 				};
 			};
-			buildConfigurationList = D3A9CD6F1C190E7C00AA84D6 /* Build configuration list for PBXProject "RCTWeChatIOS" */;
+			buildConfigurationList = D38ECF4C1C192AC800BDD8AE /* Build configuration list for PBXProject "RCTWeChat" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D3A9CD6B1C190E7C00AA84D6;
-			productRefGroup = D3A9CD751C190E7C00AA84D6 /* Products */;
+			mainGroup = D38ECF481C192AC800BDD8AE;
+			productRefGroup = D38ECF521C192AC800BDD8AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D3A9CD731C190E7C00AA84D6 /* RCTWeChatIOS */,
+				D38ECF501C192AC800BDD8AE /* RCTWeChat */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D3A9CD701C190E7C00AA84D6 /* Sources */ = {
+		D38ECF4D1C192AC800BDD8AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A9CD7A1C190E7C00AA84D6 /* RCTWeChatIOS.m in Sources */,
+				D38ECF571C192AC800BDD8AE /* RCTWeChat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D3A9CD7B1C190E7C00AA84D6 /* Debug */ = {
+		D38ECF581C192AC800BDD8AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		D3A9CD7C1C190E7C00AA84D6 /* Release */ = {
+		D38ECF591C192AC800BDD8AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -225,7 +225,7 @@
 			};
 			name = Release;
 		};
-		D3A9CD7E1C190E7C00AA84D6 /* Debug */ = {
+		D38ECF5B1C192AC800BDD8AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LIBRARY_SEARCH_PATHS = (
@@ -238,7 +238,7 @@
 			};
 			name = Debug;
 		};
-		D3A9CD7F1C190E7C00AA84D6 /* Release */ = {
+		D38ECF5C1C192AC800BDD8AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LIBRARY_SEARCH_PATHS = (
@@ -254,24 +254,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D3A9CD6F1C190E7C00AA84D6 /* Build configuration list for PBXProject "RCTWeChatIOS" */ = {
+		D38ECF4C1C192AC800BDD8AE /* Build configuration list for PBXProject "RCTWeChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3A9CD7B1C190E7C00AA84D6 /* Debug */,
-				D3A9CD7C1C190E7C00AA84D6 /* Release */,
+				D38ECF581C192AC800BDD8AE /* Debug */,
+				D38ECF591C192AC800BDD8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D3A9CD7D1C190E7C00AA84D6 /* Build configuration list for PBXNativeTarget "RCTWeChatIOS" */ = {
+		D38ECF5A1C192AC800BDD8AE /* Build configuration list for PBXNativeTarget "RCTWeChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D3A9CD7E1C190E7C00AA84D6 /* Debug */,
-				D3A9CD7F1C190E7C00AA84D6 /* Release */,
+				D38ECF5B1C192AC800BDD8AE /* Debug */,
+				D38ECF5C1C192AC800BDD8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D3A9CD6C1C190E7C00AA84D6 /* Project object */;
+	rootObject = D38ECF491C192AC800BDD8AE /* Project object */;
 }
