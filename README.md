@@ -1,5 +1,5 @@
 # react-native-wechat-ios
-微信SDK集成示例，现已完成微信授权登录，之后将陆续包装分享等其他功能。
+微信SDK集成示例，现已完成微信认证登录，之后将陆续包装分享等其他功能。
 
 ## 如何安装
 
@@ -49,8 +49,8 @@ http://www.jianshu.com/p/1f575e4d1033
 
 ```
 
-### 2. 订阅`finishedAuth`事件获取授权结果
-授权成功后由Native端触发该事件，通知React Native端。
+### 2. 订阅`finishedAuth`事件获取认证处理结果
+认证成功后由Native端触发该事件，通知React Native端。
 
 ```javascript
 import {NativeAppEventEmitter} from 'react-native';
@@ -66,7 +66,7 @@ NativeAppEventEmitter.addListener(
 * `response.state`
 * `response.errCode`
 
-### 3. 发起授权
+### 3. 发起认证
 ```javascript
 import WeChat from 'react-native-wechat-ios';
 
@@ -91,7 +91,7 @@ WeChat.isWXAppInstalled((res) => {
     alert('isWXAppInstalled: '+res); // true or false
 });
 ```
-- sendAuthRequest 发起授权请求
+- sendAuthRequest 发起认证请求
 ```javascript
 let state = 'wechat_sdk_test'; 
 let scope = 'snsapi_userinfo';

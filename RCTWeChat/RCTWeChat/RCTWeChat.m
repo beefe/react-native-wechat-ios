@@ -82,7 +82,7 @@ RCT_EXPORT_METHOD(isWXAppInstalled:(RCTResponseSenderBlock)callback)
     callback(@[@([WXApi isWXAppInstalled])]);
 }
 
-// 发起授权请求
+// 发起认证请求
 RCT_EXPORT_METHOD(sendAuthRequest:(NSString *)state
                   :(NSString *)scope
                   :(RCTResponseSenderBlock)callback)
