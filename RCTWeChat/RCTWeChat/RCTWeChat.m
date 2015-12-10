@@ -82,15 +82,16 @@ RCT_EXPORT_METHOD(isWXAppInstalled:(RCTResponseSenderBlock)callback)
     callback(@[@([WXApi isWXAppInstalled])]);
 }
 
-//
+// 发起授权请求
 RCT_EXPORT_METHOD(sendAuthRequest:(NSString *)state
+                  :(NSString *)scope
                   :(RCTResponseSenderBlock)callback)
 {
     SendAuthReq* req = [[SendAuthReq alloc] init];
-    req.scope = @"snsapi_userinfo";
+    req.scope = scope;
     req.state = state;
     [WXApi sendReq:req];
-    callback(@[[NSNull null]]);
+    callback(@[@([WXApi sendReq:req])]);
 }
 
 @end

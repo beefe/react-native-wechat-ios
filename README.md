@@ -70,8 +70,10 @@ NativeAppEventEmitter.addListener(
 ```javascript
 import WeChat from 'react-native-wechat-ios';
 
-let state = '1311231'; 
-WeChat.sendAuthRequest(state, (res) => {
+let state = 'wechat_sdk_test'; 
+let scope = 'snsapi_userinfo';
+WeChat.sendAuthRequest(state, scope, (res) => {
+    alert(res); // true or false
 });
 ```
 
@@ -91,10 +93,11 @@ WeChat.isWXAppInstalled((res) => {
 ```
 - sendAuthRequest 发起授权请求
 ```javascript
-let state = '1311231'; 
-WeChat.sendAuthRequest(state, (res) => {
-});
-```
+let state = 'wechat_sdk_test'; 
+let scope = 'snsapi_userinfo';
+WeChat.sendAuthRequest(state, scope, (res) => {
+    alert(res); // true or false
+});```
 
 ## Example
 记得要将 AppDelegate.m 文件中的IP换成自己的:

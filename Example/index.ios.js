@@ -41,8 +41,10 @@ class Example extends React.Component {
     }
 
     sendAuthRequest() {
-        let state = '1311231'; 
-        WeChat.sendAuthRequest(state, (res) => {
+        let state = 'wechat_sdk_test'; 
+        let scope = 'snsapi_userinfo';
+        WeChat.sendAuthRequest(state, scope, (res) => {
+            show('sendAuthRequest', res);
         });
     }
 
