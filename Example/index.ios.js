@@ -29,7 +29,7 @@ class Example extends React.Component {
     }
 
     registerApp() {
-        WeChat.registerApp('wx83d159dc6eb40405', (res) => {
+        WeChat.registerApp('wxd930ea5d5a258f4f', (res) => {
             show('registerApp', res);
         });
     }

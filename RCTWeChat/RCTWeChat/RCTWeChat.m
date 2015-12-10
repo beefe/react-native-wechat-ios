@@ -45,8 +45,7 @@ RCT_EXPORT_MODULE();
 
 - (BOOL)handleOpenURL:(NSURL *)url
 {
-    [WXApi handleOpenURL:url delegate:instance];
-    return true;
+    return [WXApi handleOpenURL:url delegate:instance];
 }
 
 - (void)onResp:(BaseResp *)resp {
