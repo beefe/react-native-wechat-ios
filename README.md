@@ -103,4 +103,5 @@ WeChat.sendAuthRequest(state, (res) => {
 jsCodeLocation = [NSURL URLWithString:@"http://172.16.5.70:8081/index.ios.bundle?platform=ios&dev=true"];
 ```
 
+![截图](./demo.gif)
 
