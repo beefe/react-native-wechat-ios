@@ -96,7 +96,7 @@ WeChat.sendAuthRequest(state, (res) => {
 });
 ```
 
-## Example 
+## Example
 
 
 

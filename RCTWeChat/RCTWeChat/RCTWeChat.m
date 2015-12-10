@@ -12,7 +12,7 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 
-static RCTWeChat* instance = nil;
+static RCTWeChat * instance = nil;
 
 @implementation RCTWeChat
 
@@ -33,15 +33,15 @@ RCT_EXPORT_MODULE();
     @synchronized(self) {
         if (!instance) {
             instance = [super allocWithZone:zone];
-            return instance;
         }
     }
-    return nil;
+    return instance;
 }
 
 - (instancetype)copyWithZone:(NSZone *)zone {
     return self;
 }
+
 
 - (BOOL)handleOpenURL:(NSURL *)url
 {

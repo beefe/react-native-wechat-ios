@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RCTBridge.h"
+#import "RCTBridgeModule.h"
 #import "WXApi.h"
 
 @interface RCTWeChat : NSObject <RCTBridgeModule, WXApiDelegate>
