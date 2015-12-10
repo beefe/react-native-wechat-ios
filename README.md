@@ -1,9 +1,9 @@
 # react-native-wechat-ios
-微信第三方登录功能集成示例
+微信第三方登录功能集成示例，之后将陆续包装其他功能。
 
 ## 安装
 ```
-$ npm install react-native-wechat-ios
+$ npm i react-native-wechat-ios
 ```
 
 ## 链接库文件到你的项目中
@@ -11,7 +11,12 @@ $ npm install react-native-wechat-ios
 
 ## 如何使用
 
-###重写AppDelegate的handleOpenURL和openURL方法：
+###1. 重写AppDelegate的handleOpenURL和openURL方法：
+
+需要导入`RCTWeChatIOS.h`
+```objective-c
+#import "RCTWeChatIOS.h"
+```
 
 ```objective-c
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
@@ -27,7 +32,7 @@ $ npm install react-native-wechat-ios
 
 ```
 
-###订阅`finishedAuth`事件获取授权结果
+###2. 订阅`finishedAuth`事件获取授权结果
 授权成功后由Native端触发该事件，通知React Native端。
 
 ```javascript
@@ -44,25 +49,33 @@ DeviceEventEmitter.addListener(
 * `response.state`
 * `response.errCode`
 
+###3. 发起授权
+```javascript
+import WeChatIOS from 'react-native-wechat-ios';
+
+let state = 1311231; 
+WeChatIOS.sendAuthRequest(state, (res) => {
+});
+```
 
 ### 已完成的方法
 - registerApp 向微信注册应用ID
 ```javascript
 // 向微信注册应用ID
-WeChat2.registerApp('你的微信应用ID', (res) => {
+WeChatIOS.registerApp('你的微信应用ID', (res) => {
     alert(res); // true or false
 });
 ```
 - isWXAppInstalled 检测是否已经安装微信客户端
 ```javascript
-WeChat2.isWXAppInstalled((res) => {
+WeChatIOS.isWXAppInstalled((res) => {
     alert('isWXAppInstalled: '+res); // true or false
 });
 ```
 - sendAuthRequest 发起授权请求
 ```javascript
 let state = 1311231; 
-WeChat2.sendAuthRequest(state, (res) => {
+WeChatIOS.sendAuthRequest(state, (res) => {
 });
 ```
 
