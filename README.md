@@ -70,7 +70,7 @@ NativeAppEventEmitter.addListener(
 ```javascript
 import WeChat from 'react-native-wechat-ios';
 
-let state = 1311231; 
+let state = '1311231'; 
 WeChat.sendAuthRequest(state, (res) => {
 });
 ```
