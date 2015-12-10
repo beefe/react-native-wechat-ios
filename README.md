@@ -1,9 +1,9 @@
-# react-native-wechat2
+# react-native-wechat-ios
 微信第三方登录功能集成示例
 
 ## 安装
 ```
-$ npm install react-native-wechat2
+$ npm install react-native-wechat-ios
 ```
 
 ## 链接库文件到你的项目中

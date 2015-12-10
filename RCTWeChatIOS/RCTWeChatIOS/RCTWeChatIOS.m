@@ -1,20 +1,20 @@
 //
-//  RCTWeChat2.m
-//  RCTWeChat2
+//  RCTWeChatIOS.m
+//  RCTWeChatIOS
 //
-//  Created by xiaoyan on 15/12/9.
+//  Created by xiaoyan on 15/12/10.
 //  Copyright © 2015年 ziyan. All rights reserved.
 //
 
-#import "RCTWeChat2.h"
+#import "RCTWeChatIOS.h"
 #import "RCTBridge.h"
 #import "RCTEventDispatcher.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
 
-static RCTWeChat2* instance = nil;
+static RCTWeChatIOS* instance = nil;
 
-@implementation RCTWeChat2
+@implementation RCTWeChatIOS
 
 RCT_EXPORT_MODULE();
 
@@ -54,9 +54,9 @@ RCT_EXPORT_MODULE();
         SendAuthResp *authResp = (SendAuthResp *)resp;
         
         NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:
-                           authResp.code, @"code",
-                           authResp.state, @"state",
-                           authResp.errCode, @"errCode", nil];
+                              authResp.code, @"code",
+                              authResp.state, @"state",
+                              authResp.errCode, @"errCode", nil];
         
         [self.bridge.eventDispatcher sendDeviceEventWithName:@"finishedAuth"
                                                         body:body];
