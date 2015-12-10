@@ -52,11 +52,11 @@ RCT_EXPORT_MODULE();
     if ([resp isKindOfClass:[SendAuthResp class]]) {
         SendAuthResp *authResp = (SendAuthResp *)resp;
         
-        NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:
+        NSDictionary *body = [[NSDictionary alloc] initWithObjectsAndKeys:
                               authResp.code, @"code",
                               authResp.state, @"state",
-                              authResp.errCode, @"errCode", nil];
-        
+                              [NSString stringWithFormat:@"%d", authResp.errCode], @"errCode", nil];
+
         [self.bridge.eventDispatcher sendAppEventWithName:@"finishedAuth"
                                                         body:body];
     }
