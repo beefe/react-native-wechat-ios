@@ -91,7 +91,7 @@ WeChat.isWXAppInstalled((res) => {
 ```
 - sendAuthRequest 发起授权请求
 ```javascript
-let state = 1311231; 
+let state = '1311231'; 
 WeChat.sendAuthRequest(state, (res) => {
 });
 ```
