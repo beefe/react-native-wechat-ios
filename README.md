@@ -97,7 +97,10 @@ WeChat.sendAuthRequest(state, (res) => {
 ```
 
 ## Example
-记得要讲 AppDelegate.m 文件中的IP换成自己的
-`jsCodeLocation = [NSURL URLWithString:@"http://172.16.5.70:8081/index.ios.bundle?platform=ios&dev=true"];`
+记得要将 AppDelegate.m 文件中的IP换成自己的:
+
+```Objective-c
+jsCodeLocation = [NSURL URLWithString:@"http://172.16.5.70:8081/index.ios.bundle?platform=ios&dev=true"];
+```
 
 
