@@ -8,7 +8,7 @@ import React from 'react-native';
 import WeChat from 'react-native-wechat-ios';
 
 let {
-    View, Text, StyleSheet,
+    View, Text, StyleSheet, ScrollView,
     AlertIOS, TouchableHighlight,
     NativeAppEventEmitter
 } = React;
@@ -26,6 +26,11 @@ class Example extends React.Component {
         NativeAppEventEmitter.addListener(
           'didRecvAuthResponse',
           (response) => AlertIOS.alert(JSON.stringify(response))
+        );
+
+        NativeAppEventEmitter.addListener(
+            'didRecvMessageResponse',
+            (response) => AlertIOS.alert(JSON.stringify(response))
         );
     }
 
@@ -80,9 +85,20 @@ class Example extends React.Component {
         });
     }
 
+    sendLinkURL() {
+        WeChat.sendLinkURL({
+            link: 'https://www.qianlonglaile.com/web/activity/share?uid=d1NrTmtrdVNFNzVmelVCQitpaEZxZz09&date=1449818774&from=groupmessage&isappinstalled=0#!/',
+            tagName: '钱隆',
+            title: '哈哈哈哈哈哈',
+            desc: '噢噢噢噢哦哦哦哦哦哦',
+            thumbImage: 'https://dn-qianlonglaile.qbox.me/static/pcQianlong/images/buy_8e82463510d2c7988f6b16877c9a9e39.png',
+            scene: 0
+        });
+    }
+
     render() {
         return (
-            <View style={styles.wrapper}>
+            <ScrollView contentContainerStyle={styles.wrapper}>
                 
                 <Text style={styles.pageTitle}>WeChat SDK for React Native (iOS)</Text>
 
@@ -134,8 +150,14 @@ class Example extends React.Component {
                     <Text style={styles.buttonTitle}>sendAuthReq</Text>
                 </TouchableHighlight>
 
+                <TouchableHighlight 
+                    style={styles.button} underlayColor="#f38"
+                    onPress={this.sendLinkURL}>
+                    <Text style={styles.buttonTitle}>sendLinkURL</Text>
+                </TouchableHighlight>
 
-            </View>
+                
+            </ScrollView>
         );
     }
 }
@@ -143,6 +165,7 @@ class Example extends React.Component {
 let styles = StyleSheet.create({
     wrapper: {
         paddingTop: 60,
+        paddingBottom: 20,
         alignItems: 'center',
     },
     pageTitle: {

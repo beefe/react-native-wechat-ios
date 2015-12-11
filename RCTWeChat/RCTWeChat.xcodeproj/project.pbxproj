@@ -10,6 +10,9 @@
 		D38ECF551C192AC800BDD8AE /* RCTWeChat.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D38ECF541C192AC800BDD8AE /* RCTWeChat.h */; };
 		D38ECF571C192AC800BDD8AE /* RCTWeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = D38ECF561C192AC800BDD8AE /* RCTWeChat.m */; };
 		D38ECF611C192B6A00BDD8AE /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D38ECF5E1C192B6A00BDD8AE /* libWeChatSDK.a */; };
+		D3D3F0871C1ACC4F00BF9DF2 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3F0821C1ACC4F00BF9DF2 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */; };
+		D3D3F0881C1ACC4F00BF9DF2 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3F0841C1ACC4F00BF9DF2 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */; };
+		D3D3F0891C1ACC4F00BF9DF2 /* WXMediaMessage+messageConstruct.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3F0861C1ACC4F00BF9DF2 /* WXMediaMessage+messageConstruct.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +35,12 @@
 		D38ECF5E1C192B6A00BDD8AE /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		D38ECF5F1C192B6A00BDD8AE /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		D38ECF601C192B6A00BDD8AE /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		D3D3F0811C1ACC4F00BF9DF2 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GetMessageFromWXResp+responseWithTextOrMediaMessage.h"; sourceTree = "<group>"; };
+		D3D3F0821C1ACC4F00BF9DF2 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GetMessageFromWXResp+responseWithTextOrMediaMessage.m"; sourceTree = "<group>"; };
+		D3D3F0831C1ACC4F00BF9DF2 /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SendMessageToWXReq+requestWithTextOrMediaMessage.h"; sourceTree = "<group>"; };
+		D3D3F0841C1ACC4F00BF9DF2 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SendMessageToWXReq+requestWithTextOrMediaMessage.m"; sourceTree = "<group>"; };
+		D3D3F0851C1ACC4F00BF9DF2 /* WXMediaMessage+messageConstruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXMediaMessage+messageConstruct.h"; sourceTree = "<group>"; };
+		D3D3F0861C1ACC4F00BF9DF2 /* WXMediaMessage+messageConstruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXMediaMessage+messageConstruct.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +58,7 @@
 		D38ECF481C192AC800BDD8AE = {
 			isa = PBXGroup;
 			children = (
+				D3D3F0801C1ACC3B00BF9DF2 /* Helper */,
 				D38ECF5D1C192B5100BDD8AE /* SDK */,
 				D38ECF531C192AC800BDD8AE /* RCTWeChat */,
 				D38ECF521C192AC800BDD8AE /* Products */,
@@ -80,6 +90,19 @@
 				D38ECF601C192B6A00BDD8AE /* WXApiObject.h */,
 			);
 			name = SDK;
+			sourceTree = "<group>";
+		};
+		D3D3F0801C1ACC3B00BF9DF2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D3D3F0811C1ACC4F00BF9DF2 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.h */,
+				D3D3F0821C1ACC4F00BF9DF2 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */,
+				D3D3F0831C1ACC4F00BF9DF2 /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */,
+				D3D3F0841C1ACC4F00BF9DF2 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */,
+				D3D3F0851C1ACC4F00BF9DF2 /* WXMediaMessage+messageConstruct.h */,
+				D3D3F0861C1ACC4F00BF9DF2 /* WXMediaMessage+messageConstruct.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D3F0881C1ACC4F00BF9DF2 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
 				D38ECF571C192AC800BDD8AE /* RCTWeChat.m in Sources */,
+				D3D3F0871C1ACC4F00BF9DF2 /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */,
+				D3D3F0891C1ACC4F00BF9DF2 /* WXMediaMessage+messageConstruct.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +296,7 @@
 				D38ECF5C1C192AC800BDD8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

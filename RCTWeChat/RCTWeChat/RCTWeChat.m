@@ -11,6 +11,9 @@
 #import "RCTEventDispatcher.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
+#import "SendMessageToWXReq+requestWithTextOrMediaMessage.h"
+#import "WXMediaMessage+messageConstruct.h"
+
 
 static RCTWeChat * instance = nil;
 
@@ -50,7 +53,17 @@ RCT_EXPORT_MODULE();
 
 // 发送一个sendReq后，收到微信的回应
 - (void)onResp:(BaseResp *)resp {
-    if ([resp isKindOfClass:[SendAuthResp class]]) {
+
+    // 发送信息
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        SendMessageToWXResp *messageResp = (SendMessageToWXResp *)resp;
+        
+        NSDictionary *body = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%d", messageResp.errCode], @"errCode", nil];
+        
+        [instance.bridge.eventDispatcher sendAppEventWithName:@"didRecvMessageResponse"
+                                                         body:body];
+    // 授权
+    } else if ([resp isKindOfClass:[SendAuthResp class]]) {
         SendAuthResp *authResp = (SendAuthResp *)resp;
         
         NSDictionary *body = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -58,7 +71,7 @@ RCT_EXPORT_MODULE();
                               authResp.state, @"state",
                               [NSString stringWithFormat:@"%d", authResp.errCode], @"errCode", nil];
 
-        [self.bridge.eventDispatcher sendAppEventWithName:@"didRecvAuthResponse"
+        [instance.bridge.eventDispatcher sendAppEventWithName:@"didRecvAuthResponse"
                                                         body:body];
     }
 }
@@ -126,5 +139,38 @@ RCT_EXPORT_METHOD(sendAuthReq:(NSString *)scope
     BOOL res = [WXApi sendReq:req];
     callback(@[@(res)]);
 }
+
+//
+RCT_EXPORT_METHOD(sendLinkURL:(NSString *)link
+                  :(NSString *)tagName
+                  :(NSString *)title
+                  :(NSString *)desc
+                  :(NSString *)thumbImage
+                  :(int)_scene
+                  :(RCTResponseSenderBlock)callback) {
+    
+    UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:thumbImage]]];
+    
+    enum WXScene scene = _scene;
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = link;
+    
+    WXMediaMessage *message = [WXMediaMessage messageWithTitle:title
+                                                   Description:desc
+                                                        Object:ext
+                                                    MessageExt:nil
+                                                 MessageAction:nil
+                                                    ThumbImage:image
+                                                      MediaTag:tagName];
+    
+    SendMessageToWXReq *req = [SendMessageToWXReq requestWithText:nil
+                                                   OrMediaMessage:message
+                                                            bText:NO
+                                                          InScene:scene];
+    BOOL res = [WXApi sendReq:req];
+    callback(@[@(res)]);
+}
+
 
 @end
