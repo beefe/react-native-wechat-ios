@@ -1,6 +1,6 @@
 {
   "name": "react-native-wechat-ios",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Wechat SDK for React Native(iOS).",
   "main": "index.js",
   "scripts": {
