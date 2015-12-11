@@ -12,7 +12,7 @@ function safeCallback(callback) {
 	return isFunction(callback) ? callback : function() {};
 }
 
-export default WeChat = {
+export default {
 	registerApp(appid, appdesc, callback) {
 		if (isFunction(appdesc)) {
 			callback = appdesc;
