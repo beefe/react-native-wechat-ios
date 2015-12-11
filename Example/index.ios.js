@@ -13,6 +13,7 @@ let {
     NativeAppEventEmitter
 } = React;
 
+let appid = 'wxd930ea5d5a258f4f';
 
 function show(title, msg) {
     AlertIOS.alert(title+'', msg+'');
@@ -23,14 +24,21 @@ class Example extends React.Component {
         this.registerApp();
 
         NativeAppEventEmitter.addListener(
-          'finishedAuth',
+          'didRecvAuthResponse',
           (response) => AlertIOS.alert(JSON.stringify(response))
         );
     }
 
     registerApp() {
-        WeChat.registerApp('wxd930ea5d5a258f4f', (res) => {
+        WeChat.registerApp(appid, (res) => {
             show('registerApp', res);
+        });
+    }
+
+    registerAppWithDesc() {
+        let appdesc = '测试';
+        WeChat.registerApp(appid, appdesc, (res) => {
+            show('registerAppWithDesc', res);
         });
     }
 
@@ -40,11 +48,35 @@ class Example extends React.Component {
         });
     }
 
-    sendAuthRequest() {
-        let state = 'wechat_sdk_test'; 
+    getWXAppInstallUrl() {
+        WeChat.getWXAppInstallUrl((res) => {
+            show('getWXAppInstallUrl', res);
+        });
+    }
+
+    isWXAppSupportApi() {
+        WeChat.isWXAppSupportApi((res) => {
+            show('isWXAppSupportApi', res);
+        });
+    }
+
+    getApiVersion() {
+        WeChat.getApiVersion((res) => {
+            show('getApiVersion', res);
+        });
+    }
+
+    openWXApp() {
+        WeChat.openWXApp((res) => {
+            show('openWXApp', res);
+        });
+    }
+
+    sendAuthReq() {
         let scope = 'snsapi_userinfo';
-        WeChat.sendAuthRequest(state, scope, (res) => {
-            show('sendAuthRequest', res);
+        let state = 'wechat_sdk_test'; 
+        WeChat.sendAuthReq(scope, state, (res) => {
+            show('sendAuthReq', res);
         });
     }
 
@@ -59,6 +91,12 @@ class Example extends React.Component {
                     onPress={this.registerApp}>
                     <Text style={styles.buttonTitle}>registerApp</Text>
                 </TouchableHighlight>
+
+                <TouchableHighlight 
+                    style={styles.button} underlayColor="#f38"
+                    onPress={this.registerAppWithDesc}>
+                    <Text style={styles.buttonTitle}>registerAppWithDesc</Text>
+                </TouchableHighlight>
                 
                 <TouchableHighlight 
                     style={styles.button} underlayColor="#f38"
@@ -68,9 +106,34 @@ class Example extends React.Component {
 
                 <TouchableHighlight 
                     style={styles.button} underlayColor="#f38"
-                    onPress={this.sendAuthRequest}>
-                    <Text style={styles.buttonTitle}>sendAuthRequest</Text>
+                    onPress={this.isWXAppSupportApi}>
+                    <Text style={styles.buttonTitle}>isWXAppSupportApi</Text>
                 </TouchableHighlight>
+
+                <TouchableHighlight 
+                    style={styles.button} underlayColor="#f38"
+                    onPress={this.getApiVersion}>
+                    <Text style={styles.buttonTitle}>getApiVersion</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                    style={styles.button} underlayColor="#f38"
+                    onPress={this.getWXAppInstallUrl}>
+                    <Text style={styles.buttonTitle}>getWXAppInstallUrl</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                    style={styles.button} underlayColor="#f38"
+                    onPress={this.openWXApp}>
+                    <Text style={styles.buttonTitle}>openWXApp</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                    style={styles.button} underlayColor="#f38"
+                    onPress={this.sendAuthReq}>
+                    <Text style={styles.buttonTitle}>sendAuthReq</Text>
+                </TouchableHighlight>
+
 
             </View>
         );
@@ -79,16 +142,16 @@ class Example extends React.Component {
 
 let styles = StyleSheet.create({
     wrapper: {
-        paddingTop: 70,
+        paddingTop: 60,
         alignItems: 'center',
     },
     pageTitle: {
-        paddingBottom: 50
+        paddingBottom: 40
     },
     button: {
         width: 200,
         height: 40,
-        marginBottom: 20,
+        marginBottom: 10,
         borderRadius: 6,
         backgroundColor: '#f38',
         alignItems: 'center',

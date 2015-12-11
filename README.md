@@ -49,14 +49,14 @@ http://www.jianshu.com/p/1f575e4d1033
 
 ```
 
-### 2. 订阅`finishedAuth`事件获取认证处理结果
+### 2. 订阅`didRecvAuthResponse`事件获取认证处理结果
 认证成功后由Native端触发该事件，通知React Native端。
 
 ```javascript
 import {NativeAppEventEmitter} from 'react-native';
 
 NativeAppEventEmitter.addListener(
-  'finishedAuth',
+  'didRecvAuthResponse',
   (response) => AlertIOS.alert(JSON.stringify(response))
 );
 
@@ -70,9 +70,9 @@ NativeAppEventEmitter.addListener(
 ```javascript
 import WeChat from 'react-native-wechat-ios';
 
-let state = 'wechat_sdk_test'; 
 let scope = 'snsapi_userinfo';
-WeChat.sendAuthRequest(state, scope, (res) => {
+let state = 'wechat_sdk_test'; 
+WeChat.sendAuthReq(scope, state, (res) => {
     alert(res); // true or false
 });
 ```
@@ -91,13 +91,20 @@ WeChat.isWXAppInstalled((res) => {
     alert('isWXAppInstalled: '+res); // true or false
 });
 ```
-- sendAuthRequest 发起认证请求
+- sendAuthReq 发起认证请求
 ```javascript
 let state = 'wechat_sdk_test'; 
 let scope = 'snsapi_userinfo';
-WeChat.sendAuthRequest(state, scope, (res) => {
+WeChat.sendAuthReq(state, scope, (res) => {
     alert(res); // true or false
 });```
+
+## 更新日志
+##### 2015.12.11
+* 方法的回调函数变为可选的
+* 新增WXApi方法，详见方法列表
+* `sendAuthRequest`方法改为`sendAuthReq`
+* 事件名`finishedAuth`改为`didRecvAuthResponse`
 
 ## Example
 记得要将 AppDelegate.m 文件中的IP换成自己的:
