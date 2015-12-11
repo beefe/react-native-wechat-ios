@@ -114,12 +114,13 @@ WeChat.isWXAppInstalled((res) => {
 
 - sendAuthReq(scope, state, callback) 发起认证请求
 ```javascript
-let state = 'wechat_sdk_test'; 
 let scope = 'snsapi_userinfo';
-WeChat.sendAuthReq(state, scope, (res) => {
+let state = 'wechat_sdk_test'; 
+WeChat.sendAuthReq(scope, state, (res) => {
     alert(res); // true or false
 });
 ```
+
 - sendLinkURL(options, callback)分享链接内容给微信
 options选项：
     * link：待分享的链接
