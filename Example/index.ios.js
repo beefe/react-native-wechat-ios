@@ -30,7 +30,13 @@ class Example extends React.Component {
 
         NativeAppEventEmitter.addListener(
             'didRecvMessageResponse',
-            (response) => AlertIOS.alert(JSON.stringify(response))
+            (response) => {
+                if (parseInt(response.errCode) === 0) {
+                    alert('分享成功');
+                } else {
+                    alert('分享失败');
+                }
+            }
         );
     }
 
