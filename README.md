@@ -17,7 +17,7 @@ $ npm i react-native-wechat-ios
 `$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat`，并选择`recursive`。
 
 ###### 根据微信SDK要求需要添加以下库文件
-  - [x] SystemConfiguration.framework	  
+  - [x] SystemConfiguration.framework   
   - [x] libz.dylib
   - [x] libsqlite3.0.dylib
   - [x] libc++.dylib
@@ -77,27 +77,39 @@ WeChat.sendAuthReq(scope, state, (res) => {
 });
 ```
 
-## 已完成的方法
-- registerApp 向微信注册应用ID
+## 已完成的方法，`callback`都是可选的
+- registerApp(appid, appdesc, callback)向微信注册应用ID, `appdesc`可选
 ```javascript
 // 向微信注册应用ID
 WeChat.registerApp('你的微信应用ID', (res) => {
     alert(res); // true or false
 });
 ```
-- isWXAppInstalled 检测是否已经安装微信客户端
+- isWXAppInstalled(callback) 检测是否已安装微信
 ```javascript
 WeChat.isWXAppInstalled((res) => {
     alert('isWXAppInstalled: '+res); // true or false
 });
 ```
-- sendAuthReq 发起认证请求
+
+- getWXAppInstallUrl(callback)获取微信的itunes安装地址
+
+- isWXAppSupportApi(callback)判断当前微信的版本是否支持OpenApi
+
+- getApiVersion(callback)获取当前微信SDK的版本号
+
+- openWXApp(callback)打开微信客户端
+
+- sendAuthReq(scope, state, callback) 发起认证请求
 ```javascript
 let state = 'wechat_sdk_test'; 
 let scope = 'snsapi_userinfo';
 WeChat.sendAuthReq(state, scope, (res) => {
     alert(res); // true or false
-});```
+});
+```
+
+
 
 ## 更新日志
 ##### 2015.12.11
