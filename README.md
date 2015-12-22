@@ -11,24 +11,24 @@ $ npm i react-native-wechat-ios
 #### 2. 链接库文件到你的项目中
 参考 https://facebook.github.io/react-native/docs/linking-libraries-ios.html#content
 
-###### 给RCTWeChat添加头文件搜索路径：`$(SRCROOT)/../../react-native/React`，并选择`recursive`。
+a. 给RCTWeChat添加头文件搜索路径：`$(SRCROOT)/../../react-native/React`，并选择`recursive`。
 
-###### 因为需要在 AppDelegate.m 文件中导入 RCTWeChat.h，所以需要在你的项目中添加一个头文件搜索路径：
+b. 因为需要在 AppDelegate.m 文件中导入 RCTWeChat.h，所以需要在你的项目中添加一个头文件搜索路径：
 `$(SRCROOT)/../node_modules/react-native-wechat-ios/RCTWeChat`，并选择`recursive`。
 
 
 #### 3. 根据微信SDK文档需要做的一些设置
-1. 根据微信SDK要求需要添加以下库文件
+a. 根据微信SDK要求需要添加以下库文件
   - [x] SystemConfiguration.framework   
   - [x] libz.dylib
   - [x] libsqlite3.0.dylib
   - [x] libc++.dylib
   - [x] CoreTelephony.framework
 
-> Xcode7 可能找不到*.dylib库，解决方法参考这里
+Xcode7 可能找不到*.dylib库，解决方法参考这里
 http://www.jianshu.com/p/1f575e4d1033
 
-2. 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你所注册的应用程序id
+b. 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你所注册的应用程序id
 ![示例](https://res.wx.qq.com/open/zh_CN/htmledition/res/img/pic/app-access-guide/ios/image0042168b9.jpg)
 
 ## 如何使用
