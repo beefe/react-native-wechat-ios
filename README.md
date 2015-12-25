@@ -93,6 +93,16 @@ WeChat.sendLinkURL({
     scene: 1
 });
 ```
+### 5. 分享本地图片给微信
+```javascript
+WeChat.sendImage({
+    path: '/var/xxxx/xxxx', //本地图片位置,可以用react-native-fs获取
+    tagName: '钱隆',
+    title: '哈哈哈哈哈哈',
+    desc: '噢噢噢噢哦哦哦哦哦哦',
+    scene: 1
+});
+```
 
 ## 已完成的方法，`callback`都是可选的
 - registerApp(appid, appdesc, callback)向微信注册应用ID, `appdesc`可选
