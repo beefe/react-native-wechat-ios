@@ -57,15 +57,15 @@ RCT_EXPORT_MODULE();
     // 发送信息
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
         SendMessageToWXResp *messageResp = (SendMessageToWXResp *)resp;
-        
+
         NSDictionary *body = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%d", messageResp.errCode], @"errCode", nil];
-        
+
         [instance.bridge.eventDispatcher sendAppEventWithName:@"didRecvMessageResponse"
                                                          body:body];
     // 授权
     } else if ([resp isKindOfClass:[SendAuthResp class]]) {
         SendAuthResp *authResp = (SendAuthResp *)resp;
-        
+
         NSDictionary *body = [[NSDictionary alloc] initWithObjectsAndKeys:
                               authResp.code, @"code",
                               authResp.state, @"state",
@@ -148,14 +148,14 @@ RCT_EXPORT_METHOD(sendLinkURL:(NSString *)link
                   :(NSString *)thumbImage
                   :(int)_scene
                   :(RCTResponseSenderBlock)callback) {
-    
+
     UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:[NSURL URLWithString:thumbImage]]];
-    
+
     enum WXScene scene = _scene;
-    
+
     WXWebpageObject *ext = [WXWebpageObject object];
     ext.webpageUrl = link;
-    
+
     WXMediaMessage *message = [WXMediaMessage messageWithTitle:title
                                                    Description:desc
                                                         Object:ext
@@ -163,7 +163,7 @@ RCT_EXPORT_METHOD(sendLinkURL:(NSString *)link
                                                  MessageAction:nil
                                                     ThumbImage:image
                                                       MediaTag:tagName];
-    
+
     SendMessageToWXReq *req = [SendMessageToWXReq requestWithText:nil
                                                    OrMediaMessage:message
                                                             bText:NO
@@ -172,5 +172,33 @@ RCT_EXPORT_METHOD(sendLinkURL:(NSString *)link
     callback(@[@(res)]);
 }
 
+RCT_EXPORT_METHOD(sendImage:(NSString *)path
+                  :(NSString *)tagName
+                  :(NSString *)title
+                  :(NSString *)desc
+                  :(int)_scene
+                  :(RCTResponseSenderBlock)callback) {
+
+    enum WXScene scene = _scene;
+    NSData *imageData = [NSData dataWithContentsOfFile:path];
+    WXImageObject *ext = [WXImageObject object];
+    ext.imageData = imageData;
+
+
+    WXMediaMessage *message = [WXMediaMessage messageWithTitle:title
+                                                   Description:desc
+                                                        Object:ext
+                                                    MessageExt:nil
+                                                 MessageAction:nil
+                                                    ThumbImage:nil
+                                                      MediaTag:tagName];
+
+    SendMessageToWXReq *req = [SendMessageToWXReq requestWithText:nil
+                                                   OrMediaMessage:message
+                                                            bText:NO
+                                                          InScene:scene];
+    BOOL res = [WXApi sendReq:req];
+    callback(@[@(res)]);
+}
 
 @end

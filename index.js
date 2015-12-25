@@ -69,12 +69,19 @@ export default {
 		    safeCallback(callback)
 		);
     }
+
+		/**
+		 * [sendImage 本地图片分享]
+		 * @param scene 0:聊天界面 1:朋友圈 2:收藏
+		 */
+		sendImage(options, callback){
+				RCTWeChat.sendImage(
+					options.path,
+					options.tagName,
+					options.title,
+					options.desc,
+					options.scene,
+					safeCallback(callback)
+				);
+			}
 };
-
-
-
-
-
-
-
-
