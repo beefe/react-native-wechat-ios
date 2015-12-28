@@ -25,7 +25,7 @@ a. 根据微信SDK要求需要添加以下库文件
   - [x] libc++.dylib
   - [x] CoreTelephony.framework
 
-Xcode7 可能找不到*.dylib库，解决方法参考这里
+Xcode7 可能找不到`*.dylib`库，可以选择`*.tbd`库，也可以参考这里
 http://www.jianshu.com/p/1f575e4d1033
 
 b. 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你所注册的应用程序id
