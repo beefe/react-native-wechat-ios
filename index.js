@@ -68,7 +68,7 @@ export default {
 		    options.scene,
 		    safeCallback(callback)
 		);
-    }
+	},
 
 		/**
 		 * [sendImage 本地图片分享]
