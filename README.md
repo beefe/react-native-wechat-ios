@@ -31,7 +31,7 @@ http://www.jianshu.com/p/1f575e4d1033
 b. 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你所注册的应用程序id
 ![示例](https://res.wx.qq.com/open/zh_CN/htmledition/res/img/pic/app-access-guide/ios/image0042168b9.jpg)
 
-#### 4. 将刚添加的 scheme 添加到 Info.plist 的 LSApplicationQueriesSchemes 中
+#### 4. 将刚添加的 scheme `weixin` 添加到 Info.plist 的 LSApplicationQueriesSchemes 中
 近期苹果公司iOS 9系统策略更新，限制了http协议的访问，此外应用需要在“Info.plist”中将要使用的URL Schemes列为白名单，才可正常检查其他应用是否安装。
 参考：
 * http://www.jianshu.com/p/e38a609f786e. 
