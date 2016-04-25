@@ -53,7 +53,9 @@ export default {
     sendAuthReq(scope, state, callback) {
         RCTWeChat.sendAuthReq(scope, state, safeCallback(callback));
     },
-
+    weChatPay(dict,callback) {
+			RCTWeChat.wechatPay(dict,safeCallback(callback));
+	},
     /**
      * [sendLinkURL 向微信发送链接内容]
      * @param scene 0:聊天界面 1:朋友圈 2:收藏

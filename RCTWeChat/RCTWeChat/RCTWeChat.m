@@ -73,7 +73,35 @@ RCT_EXPORT_MODULE();
 
         [instance.bridge.eventDispatcher sendAppEventWithName:@"didRecvAuthResponse"
                                                         body:body];
+    }else if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        NSString *strMsg = [NSString stringWithFormat:@"支付结果"];
+        NSString *errCode = @"";
+        NSMutableDictionary *body = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                     strMsg,@"strMsg",
+                                     errCode,@"errCode",nil];
+        switch (resp.errCode) {
+            case WXSuccess:
+                errCode = [NSString stringWithFormat:@"%d",resp.errCode];
+                strMsg = @"支付结果：成功！";
+                body[@"strMsg"] = strMsg;
+                body[@"errCode"] = errCode;
+                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                break;
+                
+            default:
+                errCode = [NSString stringWithFormat:@"%d",resp.errCode];
+                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+                body[@"strMsg"] = strMsg;
+                body[@"errCode"] = errCode;
+                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                break;
+        }
+        [instance.bridge.eventDispatcher sendAppEventWithName:@"finishedPay"
+                                                         body:body];
+        
     }
+
 }
 
 // 收到一个来自微信的请求，
@@ -197,6 +225,22 @@ RCT_EXPORT_METHOD(sendImage:(NSString *)path
                                                    OrMediaMessage:message
                                                             bText:NO
                                                           InScene:scene];
+    BOOL res = [WXApi sendReq:req];
+    callback(@[@(res)]);
+}
+
+RCT_EXPORT_METHOD(wechatPay:(NSDictionary *)dict
+                  :(RCTResponseSenderBlock)callback) {
+    NSMutableString *stamp  = [dict objectForKey:@"timeStamp"];
+    PayReq* req = [[PayReq alloc] init];
+    req.partnerId = [dict objectForKey:@"partnerId"];
+    req.prepayId = [dict objectForKey:@"prepayId"];
+    req.nonceStr = [dict objectForKey:@"nonceStr"];
+    req.timeStamp = stamp.intValue;
+    req.package = [dict objectForKey:@"packageValue"];
+    req.sign = [dict objectForKey:@"sign"];
+    //日志输出
+        NSLog(@"partid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
     BOOL res = [WXApi sendReq:req];
     callback(@[@(res)]);
 }
