@@ -1,5 +1,5 @@
 # react-native-wechat-ios
-微信SDK集成示例，现已完成微信认证登录，分享链接功能。
+微信SDK集成示例，现已完成微信认证登录，分享链接，支付功能。
 
 ## 如何安装
 
@@ -109,7 +109,52 @@ WeChat.sendImage({
     scene: 1
 });
 ```
-
+### 6. 微信支付
+#### 1. 调用支付
+```javascript
+//建议请先完成 isWXAppInstalled 和 isWXAppSupportAPI 验证调用微信及微信支付可行性
+//请仔细核对调起支付参数
+let payOptions = {
+    appId: '********',
+    nonceStr: '940ba5be3fd642a0bd935546b23e1b5d',
+    partnerId: '**********',
+    prepayId: 'wx201604252333295472c2d8a40853064388',
+    packageValue: 'Sign=WXPay',
+    timeStamp: '1461598433',
+    sign: 'D055ABFA6B1030273FEDBE8ECEBE1FC0'
+    };
+WeChat.weChatPay(payOptions,(res) => {
+   //console.log(res);
+});
+```
+#### 2. 订阅`finishedPay`事件获取调用支付结果
+支付结束后由Native端触发该事件，通知React Native端。
+* ref: https://facebook.github.io/react-native/docs/native-modules-ios.html#content
+* 注册监听事件
+```javascript
+let subscription = NativeAppEventEmitter.addListener(
+    'finishedPay',
+    (res) => {
+      if(res.errCode == 0) { //充值成功
+        console.log('充值成功');
+      } else if(res.errCode == -1) { //很多情况下是证书问题
+        console.log('支付失败,请稍后尝试'); 
+      } else if(res.errCode == -2) { //充值取消
+        console.log("充值取消");
+      }
+    }
+  );
+```
+* 卸载监听事件
+```javascript
+componentWillUnmount() {
+    if (Platform.OS == 'ios') {
+      if(subscription != undefined) {
+        subscription.remove();
+      }
+    }
+  }
+```
 ## 已完成的方法，`callback`都是可选的
 - registerApp(appid, appdesc, callback)向微信注册应用ID, `appdesc`可选
 ```javascript
@@ -151,12 +196,27 @@ options选项：
     * thumbImage 缩略图地址
     * scene 场景(0:聊天界面，1:朋友圈，2:收藏)
 
+- wechatPay(payOptions, callback)分享链接内容给微信
+payOptions：
+    * appId：应用ID
+    * nonceStr 随机字符串
+    * partnerId 商户号
+    * prepayId 预支付交易会话ID
+    * packageValue 扩展字段
+    * timeStamp 时间戳
+    * sign 签名
+参考：
+* https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_12&index=2 
+
 ## 事件，通过订阅事件获取操作结果
 ### didRecvAuthResponse
 授权成功后触发
 
 ### didRecvMessageResponse 
 分享成功后触发
+
+### finishedPay 
+调起支付成功后触发
 
 ## 更新日志
 ##### 2015.12.11
@@ -165,6 +225,9 @@ options选项：
 * 新增WXApi方法，详见方法列表
 * `sendAuthRequest`方法改为`sendAuthReq`
 * 事件名`finishedAuth`改为`didRecvAuthResponse`
+
+##### 2016.4.25
+* 新增微信支付
 
 ## Example
 记得要将 AppDelegate.m 文件中的IP换成自己的:
