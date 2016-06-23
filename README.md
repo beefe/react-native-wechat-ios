@@ -1,5 +1,5 @@
 # react-native-wechat-ios
-微信SDK集成示例，现已完成微信认证登录，分享链接，支付功能。
+微信SDK集成示例，现已完成微信认证登录，分享链接，支付功能。(本模块仅支持iOS，[点我获取Android支持](https://github.com/beefe/react-native-wechat-android)）
 
 ## 如何安装
 
