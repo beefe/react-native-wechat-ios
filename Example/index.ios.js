@@ -4,20 +4,33 @@
  */
 'use strict';
 
-import React from 'react-native';
+import React from 'react';
 import WeChat from 'react-native-wechat-ios';
 
-let {
+import {
     View, Text, StyleSheet, ScrollView,
     AlertIOS, TouchableHighlight,
-    NativeAppEventEmitter
-} = React;
+    NativeAppEventEmitter, AppRegistry, DeviceEventEmitter
+} from 'react-native';
 
 let appid = 'wxd930ea5d5a258f4f';
 
 function show(title, msg) {
     AlertIOS.alert(title+'', msg+'');
 }
+
+let subscription = NativeAppEventEmitter.addListener(
+    'finishedPay',
+    (res) => {
+      if(res.errCode == 0) { //充值成功
+        show('充值成功');
+      } else if(res.errCode == -1) { //很多情况下是证书问题
+        show('支付失败,请稍后尝试'); 
+      } else if(res.errCode == -2) { //充值取消
+        show("充值取消");
+      }
+    }
+  );
 
 class Example extends React.Component {
     componentDidMount() {
@@ -56,6 +69,22 @@ class Example extends React.Component {
     isWXAppInstalled() {
         WeChat.isWXAppInstalled((res) => {
             show('isWXAppInstalled', res);
+        });
+    }
+
+    wechatPay() {
+        let payOptions = {
+            appId: 'wx8888888888888888',
+            nonceStr: '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
+            partnerId: '1900000109',
+            prepayId: 'WX1217752501201407033233368018',
+            packageValue: 'Sign=WXPay',
+            timeStamp: '1412000000',
+            sign: 'C380BEC2BFD727A4B6845133519F3AD6'
+        };
+        WeChat.weChatPay(payOptions,(res) => {
+            console.log(res);
+           show('pay ', res);
         });
     }
 
@@ -107,6 +136,12 @@ class Example extends React.Component {
             <ScrollView contentContainerStyle={styles.wrapper}>
                 
                 <Text style={styles.pageTitle}>WeChat SDK for React Native (iOS)</Text>
+
+                <TouchableHighlight 
+                    style={styles.button} underlayColor="#f38"
+                    onPress={this.wechatPay}>
+                    <Text style={styles.buttonTitle}>wechatPay</Text>
+                </TouchableHighlight>
 
                 <TouchableHighlight 
                     style={styles.button} underlayColor="#f38"
@@ -192,7 +227,7 @@ let styles = StyleSheet.create({
     }
 });
 
-React.AppRegistry.registerComponent('Example', () => Example);
+AppRegistry.registerComponent('Example', () => Example);
 
 
 
