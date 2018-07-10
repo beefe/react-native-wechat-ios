@@ -7,7 +7,11 @@
 //
 
 #import "RCTWeChat.h"
+#if __has_include(<React/RCTBridge.h>)
+#import <React/RCTBridge.h>
+#else
 #import "RCTBridge.h"
+#endif
 #import "RCTEventDispatcher.h"
 #import "WXApi.h"
 #import "WXApiObject.h"
